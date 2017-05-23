@@ -143,24 +143,29 @@ def bagging(X, y, test_size=0.2, random_state=13):
       print('Bagging progress: ' +  str(i))
       # bootstrapped sample
       tmpS1 = np.random.choice(trind, len(trind), replace=True)
-      # bootstrapped rest
+      # bootstrapped rest sample
       tmpS2 = list(set(trind) - set(tmpS1))
 
-      tmpX2 = X[tmpS2] # bootstrapped rest train
-      tmpY2 = y[tmpS2] #  bootstrapped rest train
+      tmpX2 = X[tmpS2] # bootstrapped rest train features
+      tmpY2 = y[tmpS2] #  bootstrapped rest train labels
 
+      # train RF on bootstrapped rest train
       rf = RandomForestClassifier()
       rf.fit(tmpX2, tmpY2)
 
       tmpX1 = X[tmpS1] # bootstrapped train
       tmpY1 = y[tmpS1] # bootstrapped train
 
-      tmpX2 = rf.predict_proba(tmpX1) # new feautres from boostrapped  train
-      tmpX3 = rf.predict_proba(X_val) # new feature from X_val
+      # generate new features with RF on bootstrapped train
+      tmpX2 = rf.predict_proba(tmpX1) # new training feautres from boostrapped  train
+      tmpX3 = rf.predict_proba(X_val) # new validation feature from X_val
 
       XGB = xgb.XGBClassifier(max_depth=11, learning_rate=0.1, min_child_weight=10, objective = "multi:softprob", nthread=7)
+
+      # train XGB on new and old train features 
       XGB.fit(np.concatenate((tmpX1, tmpX2), axis=1), tmpY1)
 
+      # predict on new and old val features
       pred0 = XGB.predict_proba(np.concatenate((X_val, tmpX3), axis=1))
       pred = pred + pred0
 
