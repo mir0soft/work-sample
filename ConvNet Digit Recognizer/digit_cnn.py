@@ -44,8 +44,8 @@ plt.show()
 print(y_train[:9])
 
 
-#### I will use a Convolutional Neural Net to solve the problem
-### Architecture: CONV -> CONV -> CONV -> MAXPOOL -> FLATTEN -> DENSE -> DROPOUT -> DENSE
+# I will use a Convolutional Neural Net to solve the problem
+# Architecture: CONV -> CONV -> CONV -> MAXPOOL -> FLATTEN -> DENSE -> DROPOUT -> DENSE
 model = Sequential()
 
 # first convolutional layer with size 28 x 28 x 16
