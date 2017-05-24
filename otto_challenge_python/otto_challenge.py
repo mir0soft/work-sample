@@ -1,4 +1,4 @@
-#################################################
+################################################
 ####### MIHRAN HAKOBYAN, OTTO CHALLENGE (kaggle)
 ####### Task of the Challenge: predict the right class of the data
 ####### RUNTIME of the script approx. 5 min
@@ -162,7 +162,7 @@ def bagging(X, y, test_size=0.2, random_state=13):
 
       XGB = xgb.XGBClassifier(max_depth=11, learning_rate=0.1, min_child_weight=10, objective = "multi:softprob", nthread=7)
 
-      # train XGB on new and old train features 
+      # train XGB on new and old train features
       XGB.fit(np.concatenate((tmpX1, tmpX2), axis=1), tmpY1)
 
       # predict on new and old val features
