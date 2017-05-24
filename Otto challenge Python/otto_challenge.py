@@ -1,4 +1,4 @@
-################################################
+###############################################
 ####### MIHRAN HAKOBYAN, OTTO CHALLENGE (kaggle)
 ####### Task of the Challenge: predict the right class of the data
 ####### RUNTIME of the script approx. 5 min
