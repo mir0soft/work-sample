@@ -5,7 +5,7 @@
 # *             Donnerstag, 12 Uhr               *
 # ************************************************
 
-## ####### ####### ###### AUFGABE 1
+## ####### ####### ##### AUFGABE 1
 library(klaR)
 library(mlbench)
 library(plyr)
