@@ -14,7 +14,7 @@ from sklearn import preprocessing
 from sklearn import model_selection
 
 
-data = pd.read_csv('/Users/mihran1/Documents/python/digit/train.csv')
+data = pd.read_csv('/Users/mihran1/Documents/python/digit/train.csv')[:10000]
 
 # separate feautres and labels
 X = np.array(data.drop('label', axis=1), dtype='float32')
@@ -42,7 +42,6 @@ plt.show()
 
 # compare images with the labels
 print(y_train[:9])
-
 
 #  I will use a Convolutional Neural Net to solve the problem
 # Architecture: CONV -> CONV -> CONV -> MAXPOOL -> FLATTEN -> DENSE -> DROPOUT -> DENSE
