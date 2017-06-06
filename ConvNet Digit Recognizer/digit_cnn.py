@@ -14,7 +14,7 @@ from sklearn import preprocessing
 from sklearn import model_selection
 
 
-data = pd.read_csv('/Users/mihran1/Documents/python/digit/train.csv')[:10000]
+data = pd.read_csv('/Users/mihran1/Documents/python/digit/train.csv')
 
 # separate feautres and labels
 X = np.array(data.drop('label', axis=1), dtype='float32')
